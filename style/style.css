@@ -26,9 +26,6 @@ body {
 .li_logo {
     float : left;
 }
-.li_logout {
-    float : right;
-}
 li a {
     display         : block; 
     color           : white; 
@@ -36,6 +33,14 @@ li a {
     padding         : 14px 16px; 
     text-decoration : none;
 } 
+
+.li_logout {
+    float      : right;
+    color      : white; 
+    text-align : center;
+    padding-top-right   : 50px;
+    border     : 1px solid white;   
+}
 
 /*
  * main 

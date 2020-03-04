@@ -1,3 +1,9 @@
+/**
+ *
+ * index.js
+ * 
+ */
+
 (function() {
     'use strict';
     $(() => {
@@ -5,21 +11,18 @@
             url: '/json/is_connected.php',
             method: 'get'
         }).done(function (data) {
-            if (data) {
+                if (data) {
                 /* le user est connecté */
-                $('body').append(
-                    $('<button />')
-                        .html('Déconnexion')
+                    $('.div_logout')
                         .on('click', function () {
                             $.ajax({
-                                url: '/json/logout.php',
+                                url: '../json/logout.php',
                                 method: 'get'
                             }).done(function () {
                                 window.location.href = '/login.html';
                             });
                         })
-                );
-            } else {
+                } else {
                 /* le user n'est pas connecté */
                 window.location.href = '/login.html';
             }

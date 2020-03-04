@@ -13,7 +13,6 @@
 				method: form.attr('method'),
 				data: form.serialize(),
 			}).done(function (data) {
-                    alert('bonjour');
 					if (data.success === true){
 						window.location.href = '/index.html';
 					}

@@ -1,4 +1,10 @@
 <?php
+//
+// logout.php 
+//
+
+
+
 session_start();
 
 // Détruit toutes les variables de session
@@ -21,5 +27,6 @@ session_destroy();
 header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json');
+echo(json_encode(true));
 
-echo json_encode(true);
+
