@@ -1,0 +1,67 @@
+/*
+ * style.css
+ * 02/03/2020 
+ *
+ * style pour la page index
+ *
+ * v1.0 
+ */
+body {
+    padding        : 0; 
+    margin         : 0;
+    display        : flex;
+    flex-direction : column;
+}
+
+/*  
+*   nav bar 
+*/
+.ul_bar {
+    list-style-type     : none;
+    margin              : 0;
+    padding             : 0; 
+    overflow            : hidden; 
+    background-color    : #333;
+}
+.li_logo {
+    float : left;
+}
+.li_logout {
+    float : right;
+}
+li a {
+    display         : block; 
+    color           : white; 
+    text-align      : center; 
+    padding         : 14px 16px; 
+    text-decoration : none;
+} 
+
+/*
+ * main 
+ */
+
+main {
+    display        : flex; 
+    flex-direction : row; 
+    text-align     : center; 
+}
+
+.div_button {
+    display        : flex;
+    flex-direction : column;
+}
+
+/*
+ * footer
+ */
+
+footer {
+    display             : flex;
+    justify-content     : space-between; 
+    padding             : 20px;
+    margin-top          : 30px; 
+    background-color    : #333;
+    color               : white;
+
+}
