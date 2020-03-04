@@ -14,9 +14,7 @@
 
 (function  () {
     'use strict';
-    console.log('debug');
     $(() => {
-
         /*  bouton poser question */
         $('.button_ask').click( function() {
             $('.message')
