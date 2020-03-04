@@ -1,9 +1,17 @@
 <?php
-//
-// login.php
-//
+/**
+ * 
+ * login.php
+ *
+ */
+require('db.php'); 
 
 session_start();
+
+$dbLink = dbConnect();  
+$query  = 'select * from myUser where username = \'' . $_POST['username'] . '\' and 
+                                      pwd      = \'' . $_POST['pwd'] . '\''; 
+$result = testError($dbLink,$query);
 
 $obj = new stdClass();
 $obj->message ="Mauvais nom d'utilisateur ou mauvais mot de passe";
@@ -11,7 +19,7 @@ $obj->success = false;
 
 
 if(isset($_POST['username']) && isset($_POST['password'])){
-        if($_POST['username'] == 'admin' && $_POST['password'] =='123') {
+        if($result != null ) {
                 $found = true;
                 $obj->success = true; 
                 $_SESSION['user'] = 123;

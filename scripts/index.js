@@ -13,7 +13,16 @@
         }).done(function (data) {
                 if (data) {
                 /* le user est connecté */
-                    $('.div_logout')
+                    $('.li_logout')
+                        .mouseenter(function() {
+                            $(this)
+                                .css({'background-color' : '#555'})
+                        }) 
+                        .mouseleave(function() {
+                            $(this)
+                                .css({'background-color' : '#f8b617'})
+                                
+                        }) 
                         .on('click', function () {
                             $.ajax({
                                 url: '../json/logout.php',
@@ -30,7 +39,6 @@
             $('body').html('Une erreur critique est arrivée.');
         });
     });
-
 }) ();
 
 
