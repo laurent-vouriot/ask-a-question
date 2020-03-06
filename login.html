@@ -5,15 +5,25 @@
     <title>Connexion</title>
     <script src="/scripts/jquery-3.4.1.min.js"></script>
     <script src="/scripts/login.js"></script>
+    <script src="/scripts/register.js"></script>
 </head>
 
 <body>
 <h1 id="title">Connexion</h1>
 <form id="form-login" method="post" action="/json/login.php">
+    <input type="text" name="username" placeholder="username"/><br/>
+    <input type="password" name="password" placeholder="password"/><br/>
+    <button type="submit">Envoyer</button>
+</form><br/>
+<div id="messages" style="display: none"></div>
+
+<button type="button" class="button_register">s'inscrire</button><br/>
+
+<form class="form_register" method="post" action="/json/register.php" style="display : none ">
     <input type="text" name="username" placeholder="username"/><br>
     <input type="password" name="password" placeholder="password"/><br>
     <button type="submit">Envoyer</button>
 </form>
-<div id="messages" style="display: none"></div>
+
 </body>
 </html>

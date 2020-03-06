@@ -7,9 +7,9 @@
  */
 function dbConnect()
 {
-    $dbLink = mysqli_connect('mysql-ask-a-question.alwaysdata.net', '201263', 'webS42020')
+    $dbLink = mysqli_connect('mysql-ask-a-question.alwaysdata.net', '201263_admin', 'webS42020')
     or die('Erreur de connexion au serveur : ' . mysqli_connect_error());
-    mysqli_select_db($dbLink , 'projet-iut-info_projetphp')
+    mysqli_select_db($dbLink , 'ask-a-question_db')
     or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
     return $dbLink;
 }

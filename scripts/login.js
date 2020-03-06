@@ -6,12 +6,12 @@
 	'use strict';
 	$(() => {
 		$('#form-login').submit(function (){
-			let form = $(this);
+			let forma = $(this);
 			$('#messages').fadeOut();
 			$.ajax({
-				url: form.attr('action'),
-				method: form.attr('method'),
-				data: form.serialize(),
+				url    : forma.attr('action'),
+				method : forma.attr('method'),
+				data   : forma.serialize(),
 			}).done(function (data) {
 					if (data.success === true){
 						window.location.href = '/index.html';
@@ -20,7 +20,7 @@
 						$('#messages').html(data.message).fadeIn();
 					}
 				}).fail(function(){
-					$('body').html("We have a problem Houston&nbsp;!");
+					//$('body').html("We have a problem Houston&nbsp;!");
 				});
 			return false;
 		});
