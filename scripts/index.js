@@ -2,7 +2,6 @@
  *
  * index.js
  * deconnexion
- *
  * 
  */
 
@@ -13,8 +12,8 @@
             url: '/json/is_connected.php',
             method: 'get'
         }).done(function (data) {
-                if (data) {
-                /* le user est connecté */
+                if (data.is_connected) {
+                /* le user est connecté on ajoute le bouton déconnexion */
                     $('.li_logout')
                         .mouseenter(function() {
                             $(this)
@@ -33,6 +32,7 @@
                                 window.location.href = '/login.html';
                             });
                         })
+                        $('.li_user').append(data.username);
                 } else {
                 /* le user n'est pas connecté */
                 window.location.href = '/login.html';
