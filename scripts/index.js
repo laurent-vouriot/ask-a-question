@@ -31,8 +31,9 @@
                             }).done(function () {
                                 window.location.href = '/login.html';
                             });
-                        })
-                        $('.li_user').append(data.username);
+                        }) 
+                        /* on ajoute le pseudo du user connecté */
+                        $('.div_user').append("connecté en tant que : " + data.username);
                 } else {
                 /* le user n'est pas connecté */
                 window.location.href = '/login.html';
