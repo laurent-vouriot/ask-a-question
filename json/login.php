@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+* 
  * login.php
  *
  */
@@ -11,8 +11,7 @@ $dbLink = dbConnect();
 $query  = 'select * from `myUser` where username = \'' . $_POST['username'] . '\' 
                                          and pwd = \'' . $_POST['password'] . '\''; 
 
-// debug 
-$result = testError($dbLink,$query);
+$result = $dbLink->query($query);
 
 $obj = new stdClass();
 $obj->message ="Mauvais nom d'utilisateur ou mauvais mot de passe";
