@@ -6,38 +6,59 @@
     v1.1 14/03/2020
 
 -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <script src="scripts/jquery-3.4.1.min.js"></script>
-    <script src="scripts/index.js"></script><!-- connexion / deconnexions -->
+    <script src="scripts/index.js"></script><!-- connexion / deconnexion -->
     <script src="scripts/script.js"></script> <!-- mes fonctions toutes pétées -->
     <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Quicksand&display=swap" rel="stylesheet"> 
     <title>Ask-a-Question</title>
 </head>
 <body>
     <nav class="nav_bar">
         <ul class="ul_bar">
             <li class="li_logo"><a href="index.html"> <img src="./src/logo.png"> </a></li>
-            <li class="li_user"></li>
             <li class="li_logout"><span>Déconnexion</span></li>
         </ul>
     </nav>
+
+    <div class="div_user"></div>
     <main>
-        <div class="div_button">
-            <h1> Bienvenu sur ask a question </h1>
+
+        <section id="presentation">
+                <h1> Bienvenu sur <span id="ask_tilte">Ask-a-Question</span> </h1>
             <p> 
                 ici vous posez vos questions ou répondre à celle des autres c'est
-                fou waw trop bien 
+                glissez la sourie sur l'image <img class="img_help_1" src="src/help.png"> pour afficher de l'aide.<br/>
+                veillez à rester courtois et à être certain de vos réponse, <br/>
+                essayez de pas poser une question au quel on a déjà répondu !
             </p>
-            <button type="button" class="button_ask">Poser une question  </button><br/>
-            <button type="button" class="button_answer"> Répondre à une question  </button><br/>
-        </div>
+        </section>
+        <section id="ask">
+            <div class="container">
+                <button type="button" class="button_ask"> Poser une question  </button><br/>
+                <button type="button" class="button_show_questions"> Répondre à une question  </button><br/>
+                <form class="form_question" method="post" action="/json/add_question.php" style="display : none">
+                    <h2> Une question ? </h2>
+                    <input type="text-field" name="question" placeholder=" quelle est votre question ?" required><br/>
+                    <button type="submit"> poster </button><br/>
+                    <div class="message"></div>
+                </form>
+                <button id="button_hide_form" style="display : none">cacher le formulaire</button>
+            </div>
+        </section><br/>
+        <section id="container">
+            <div id="div_list_questions" style="diplay : none"></div>
+            <button id="button_hide_form" style="display : none">cacher le formulaire</button>
+        </section>
+        <img class="img_help_2" src="src/help.png"> 
+        <div class="div_help" style="display : none"></div> 
+        
 
-        <img class="img_help" src="help.png"> 
-        <div class="div_help" style="display : none;"></div> 
-        <div class="message" style="display : none;"></div>
      </main>
     <footer>
         <p> Laurent VOURIOT 2020 M4103C </p>

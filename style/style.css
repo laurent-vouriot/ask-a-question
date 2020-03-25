@@ -11,6 +11,7 @@ body {
     margin         : 0;
     display        : flex;
     flex-direction : column;
+    font-family    : 'Quicksand', sans-serif;
 }
 
 /*  
@@ -23,16 +24,16 @@ body {
     overflow            : hidden; 
     background-color    : #333;
 }
-.li_logo {
-    float : left;
-}
 li a {
     display         : block; 
     color           : white; 
     text-align      : center; 
     padding         : 14px 16px; 
     text-decoration : none;
-} 
+}
+.li_logo {
+    float : left;
+}
 
 .li_logout {
     float            : right;
@@ -48,20 +49,70 @@ li a {
     height           : 192px;
 }
 
+.li_user {
+    float : right;
+} 
+.div_user {
+    float : right;
+}
 /*
  * main 
  */
 
+
 main {
-    display        : flex; 
-    flex-direction : row; 
-    text-align     : center; 
+    display         : flex; 
+    flex-direction  : column;
+    justify-content : center;
+    text-align      : center;
 }
 
-.div_button {
+#presentation {
+    margin-top : 5%;
+}
+#ask_title {
+    font-family: 'Permanent Marker', cursive;
+}
+
+#container {
+    margin-top   : 100px;
+    margin-left  : 20%;
+    margin-right : 20%;
+}  
+button {
+    width : 300px;
+}
+
+input {
+    width : 400px; 
+} 
+
+.message {
+    padding : 10px;
+    color   :  #f8b617;
+}
+
+.img_help {
+    height : 15px;
+    width  : 15px;
+} 
+
+#div_list_questions {
     display        : flex;
     flex-direction : column;
+    margin-top     :  30px;
+} 
+span {
+    margin : 10px; 
+} 
+.img_help_1 {
+    height : 30px;
+    width  : 30px;
 }
+.img_help_2 {
+    height : 50px;
+    width  : 50px;
+}  
 
 /*
  * footer
