@@ -66,9 +66,12 @@ main {
     justify-content : center;
     text-align      : center;
 }
-
+#help { 
+    font-size : 35px;
+    border    : solid black #f8b617;
+}
 #presentation {
-    margin-top : 5%;
+    margin-top : 10%;
 }
 #ask_title {
     font-family: 'Permanent Marker', cursive;
@@ -89,14 +92,8 @@ input {
 
 .message {
     padding : 10px;
-    color   :  #f8b617;
+    color   : #f8b617;
 }
-
-.img_help {
-    height : 15px;
-    width  : 15px;
-} 
-
 #div_list_questions {
     display        : flex;
     flex-direction : column;
@@ -104,12 +101,17 @@ input {
 } 
 span {
     margin : 10px; 
-} 
-.img_help_1 {
-    height : 30px;
-    width  : 30px;
 }
-.img_help_2 {
+#refresh {
+    cursor : pointer;
+    height : 29px; 
+    width  : 35px
+}
+#img_help_1 {
+    height : 50px;
+    width  : 50px;
+}
+#img_help_2 {
     height : 50px;
     width  : 50px;
 }  
@@ -125,5 +127,10 @@ footer {
     margin-top          : 30px; 
     background-color    : #333;
     color               : white;
+
+}
+#img_github {
+    height : 50px;
+    width  : 50px;
 
 }

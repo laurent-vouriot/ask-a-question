@@ -11,27 +11,19 @@
     'use strict';
     $(() => {
         
-
-
-        
-
-        
         class help {
-            id      = 0;
-            message = "";
 
-            constructor(id,label){
-                this.id = id;
-                this.label = label;
+            constructor(id,message){
+                this.id      = id;
+                this.message = message;
             }
             show() {
-                return this.label
+                $('#help').html(this.message)
+                          .slideDown()
+                          .delay(5000)
+                          .slideUp();
             }
-
         }
-
-        let test = new help(1,"premier message d'aide");
-        console.log(test.show());
 
         /* pour les .fail() des appels ajax */
         function phpError(fic) {
@@ -96,28 +88,41 @@
                 }
                 /* on récupère l'id de la question pour pouvoir afficher toutes les réponses  */
                 $('span').one('click', function() {
-                    
                     let id_q = $(this).attr('class');
-                    
-                    let form_add_answer ='<form class="form_add_answer" method="post" action="../json/add_answer.php?id_q='+ id_q +'"> <p> répondre </p> <input type="textField" name="answer" placeholder="vous avez la réponse ?" required><br/> <button type="submit"> publier </button> </form><br/><div id="message" style="display : none"></div>'
+                    let form_add_answer ='<form class="form_add_answer" method="post" action="../json/add_answer.php?id_q='+ $(this).attr('class') +'"> <p> répondre </p> <input type="textField" name="answer" placeholder="vous avez la réponse ?" required><br/> <button type="submit"> publier </button> </form><br/><div id="message" style="display : none"></div>'
                     /* lorque l'on clique sur une question le formulaire de réponse ainsi que toutes 
-                     * les réponses */ 
-                    $('.'+id_q).one('click', function() {
+                     * les réponses apparaissent 
+                     **/ 
+                    $('.'+id_q).one('click',function() {
                         let span = $(this);
                         $.ajax({
                             url    : '../json/get_answers.php?id_q='+id_q,
                             method : 'get'
                         }).done(function(data) {
-                            $(span).append('liste des réponses : <br/><br/> ');
+                            span.append('liste des réponses : <br/><br/> ');
                             for(let i=0; i < data.answers.length; ++i) {
                                 span.append('auteur : '+ data.answers[i][3]+'<br/>'
-                                                       + data.answers[i][2]+'<br/>');
+                                                       + data.answers[i][2]+'<br/><hr/>');
                             } 
                         }).fail(function () {
                             phpError('get_answers.php');
                         });
-                            
-                        span.append(form_add_answer);     
+                        span.append(form_add_answer+'<br/>');
+
+                        span.append('<img id="refresh" src="src/refresh.png" >');
+                        
+                       /* actualiser les réponses */
+                        $('#refresh').click(function () {
+                            $.ajax({
+                                url    : '../json/get_answers.php?id_q='+id_q,
+                                method : 'get'
+                            }).done(function(data) {
+                                span.append('auteur : '+ data.answers[data.answers.length-1][3]+'<br/>'
+                                                       + data.answers[data.answers.length-1][2]+'<br/><hr/>');
+                            }).fail(function () {
+                                phpError('get_answers.php');
+                            });
+                        }); 
 //========================================================================
 //              REPONDRE A UNE QUESTION
 //========================================================================
@@ -129,12 +134,12 @@
                                 data   : form.serialize()
                             }).done(function(data) {
                                 if(data.success === true) {
-                                    $('#message').append(data.message)
-                                                 .fadeIn(1000)
+                                    $('#message').html(data.message)
+                                                 .fadeIn(2000)
                                                  .fadeOut()
                                                  .css({'color' : '#f8b617'});
                                 } else {
-                                    $('#message').append(data.message)
+                                    $('#message').html(data.message)
                                                  .fadeIn(1000)
                                                  .fadeOut()
                                                  .css({'color' : '#f8b617'});
@@ -156,26 +161,15 @@
 
 
         /*      img help        */
-        $('.img_help_1')
+        $('#img_help_1')
           .mouseenter(function () {
-            let aide = new help(1,"ceci est un test");
-            $('.div_help').html(aide.show())
-                          .fadeIn(1000) 
-           })
-          .mouseleave(function () {
-            $('.div_help')
-                .fadeOut(1000);
-          });
-
-        $('.img_help_2')
+            let aide1 = new help(1,"l'aide s'affiche ici !");
+            aide1.show();
+        });
+        $('#img_help_2')
           .mouseenter(function () {
-            let aide = new help(1,"ceci est un test");
-            $('.div_help').html(aide.show())
-                          .fadeIn(1000) 
-           })
-          .mouseleave(function () {
-            $('.div_help')
-                .fadeOut(1000);
+            let aide2 = new help(2,'pour afficher la liste des réponses et/ou  répondre à la question cliquez deux fois dessus<br/> pour actualiser les réponses cliquez sur l\'icone à côte de "liste des réponses"');
+            aide2.show();
           });
     })
 })();
