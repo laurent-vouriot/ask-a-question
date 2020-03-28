@@ -21,7 +21,7 @@
 <body>
     <nav class="nav_bar">
         <ul class="ul_bar">
-            <li class="li_logo"><a href="index.html"> <img src="./src/logo.png"> </a></li>
+            <li class="li_logo"><a href="index.html"> <img src="src/logo.png"> </a></li>
             <li class="li_logout"><span>Déconnexion</span></li>
         </ul>
     </nav>
@@ -29,19 +29,19 @@
     <div id="help" style="display : none"></div>
     <main>
         <section id="presentation">
-                <h1> Bienvenu sur <span id="ask_tilte">Ask-a-Question</span> </h1>
+                <h1> Bienvenu sur <span id="ask_title">Ask-a-Question</span> </h1>
             <p> 
-                ici vous posez vos questions ou répondre à celle des autres c'est
-                glissez la sourie sur l'image <img id="img_help_1" src="src/help.png"> pour afficher de l'aide.<br/>
-                veillez à rester courtois et à être certain de vos réponse, <br/>
-                essayez de pas poser une question au quel on a déjà répondu !
+                ici vous pouvez poser vos questions ou répondre à celle des autres 
+                glissez la sourie sur les images <img id="img_help_1" src="src/help.png"> pour afficher de l'aide.<br/>
+                Veillez à rester courtois et à être certain de vos réponses, <br/>
+                essayez de ne pas poster une question auquel quelqu'un a déjà répondu !
             </p>
         </section>
         <section id="ask">
             <div class="container">
                 <button type="button" class="button_ask"> Poser une question  </button><br/>
                 <button type="button" class="button_show_questions"> Répondre à une question  </button><br/>
-                <form class="form_question" method="post" action="/json/add_question.php" style="display : none">
+                <form class="form_question" method="post" action="json/add_question.php" style="display : none">
                     <h2> Une question ? </h2>
                     <input type="text-field" name="question" placeholder=" quelle est votre question ?" required><br/>
                     <button type="submit"> poster </button><br/>

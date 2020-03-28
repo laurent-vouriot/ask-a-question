@@ -73,7 +73,7 @@
         /* bouton voire les differentes  questions */
         $('.button_show_questions').one('click',function() {
             $.ajax({
-                url    : '../json/get_questions.php',
+                url    : 'json/get_questions.php',
                 method : 'get'
             }).done(function (data) {
                 /* afficher les questions */               
@@ -96,7 +96,7 @@
                     $('.'+id_q).one('click',function() {
                         let span = $(this);
                         $.ajax({
-                            url    : '../json/get_answers.php?id_q='+id_q,
+                            url    : 'json/get_answers.php?id_q='+id_q,
                             method : 'get'
                         }).done(function(data) {
                             span.append('liste des réponses : <br/><br/> ');
@@ -114,7 +114,7 @@
                        /* actualiser les réponses */
                         $('#refresh').click(function () {
                             $.ajax({
-                                url    : '../json/get_answers.php?id_q='+id_q,
+                                url    : 'json/get_answers.php?id_q='+id_q,
                                 method : 'get'
                             }).done(function(data) {
                                 span.append('auteur : '+ data.answers[data.answers.length-1][3]+'<br/>'

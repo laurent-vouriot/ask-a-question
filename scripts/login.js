@@ -17,7 +17,7 @@
 				data   : form.serialize(),
 			}).done(function (data) {
 					if (data.success === true){
-						window.location.href = '/index.html';
+						window.location.href = 'index.html';
 					}
 					else {
 						$('#messages').html(data.message).fadeIn();
