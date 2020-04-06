@@ -9,7 +9,7 @@
  */
 
 require('db.php');
-session_start();
+//session_start();
 
 $dbLink      = dbConnect();
 $id_question = $_GET['id_q'];
