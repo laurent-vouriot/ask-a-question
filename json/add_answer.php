@@ -8,8 +8,8 @@
  *
  */
 
-session_start();
 require('db.php');
+session_start();
 
 $dbLink      = dbConnect();
 $id_question = $_GET['id_q'];
