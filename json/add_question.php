@@ -1,7 +1,7 @@
 <?php 
 /**
  *
- * question.php 
+ * add_question.php 
  * 15/03/2020
  *
  * lorsque l'utilisateur pose une question on l'insère dans la bd
