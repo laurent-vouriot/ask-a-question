@@ -82,7 +82,7 @@
                         .append('<span class="' + data.result[i][0] +
                                 '" style="border : solid black 1px; padding : 10px">  auteur : '
                                 + data.result[i][1]
-                                + ', question : '    + data.result[i][2] + '</span><button id="del_question">X<button>"<br/>');
+                                + ', question : '    + data.result[i][2] + '</span>');
                 }
                 
                 /* on récupère l'id de la question pour pouvoir afficher toutes les réponses  */
