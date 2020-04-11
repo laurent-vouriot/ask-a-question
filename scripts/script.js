@@ -69,7 +69,6 @@
 //========================================================================
         /* bouton voire les differentes  questions */
         $('.button_show_questions').one('click',function() {
-            $('#container_answers').slideDown();
             $.ajax({
                 url    : 'json/get_questions.php',
                 method : 'get'
@@ -77,7 +76,7 @@
                 /* afficher les questions */               
                 $('#div_list_questions')
                     .append('<h2> Voici les differentes questions qui ont été posées </h2> <p> pour afficher les réponses et/ou répondre à une question, cliquez deux fois dessus</p><br/>')
-                    .append('<button id="hide_answers">cacher les questions </button>');
+                
                 for(let i = 0; i < data.result.length; ++i) {
                     $('#div_list_questions')
                         .append('<span class="' + data.result[i][0] +
@@ -85,12 +84,6 @@
                                 + data.result[i][1]
                                 + ', question : '    + data.result[i][2] + '</span><br/>');
                 }
-                $('#hide_answers').click(function() {
-                    console.log("ok");
-                    $('#container_answers').slideUp();
-                });
-
-
                 
                 /* on récupère l'id de la question pour pouvoir afficher toutes les réponses  */
                 $('span').one('click', function() {
