@@ -2,7 +2,7 @@
  * script.js
  * 02/03/2020 
  *  
- *  dernière maj : 24/03/2020
+ * dernière maj : 24/03/2020
  *
  *
  */
@@ -29,7 +29,6 @@
         function phpError(fic) {
             $('body').html('erreur critique dans le fichier : ' + fic);
         }
-
 //========================================================================
 //                  POSER UNE QUESTION
 //========================================================================
@@ -52,7 +51,7 @@
             }).done(function(data)  {
                 if(data.result  === true) {
                     $('.message')
-                        .append(data.message)
+                        .html(data.message)
                         .fadeIn()
                         .delay(2000)
                         .fadeOut();
@@ -65,11 +64,9 @@
             });
             return false;
         });
-       
 //========================================================================
 //              AFFICHER LES REPONSES 
 //========================================================================
-        
         /* bouton voire les differentes  questions */
         $('.button_show_questions').one('click',function() {
             $.ajax({
@@ -79,6 +76,7 @@
                 /* afficher les questions */               
                 $('#div_list_questions')
                     .append('<h2> Voici les differentes questions qui ont été posées </h2> <p> pour afficher les réponses et/ou répondre à une question, cliquez deux fois dessus</p><br/>');
+                    .append('<button id="hide_answers">cacher le formulaire</button>')
                 for(let i = 0; i < data.result.length; ++i) {
                     $('#div_list_questions')
                         .append('<span class="' + data.result[i][0] +
@@ -86,6 +84,9 @@
                                 + data.result[i][1]
                                 + ', question : '    + data.result[i][2] + '</span><br/>');
                 }
+                $('hide_answers').click(function() {
+                    $('#div_list_questions').html();
+                });
                 /* on récupère l'id de la question pour pouvoir afficher toutes les réponses  */
                 $('span').one('click', function() {
                     let id_q = $(this).attr('class');
@@ -154,13 +155,10 @@
             }).fail( function() {
                 phpError('get_questions.php');
             });
-            
         });
-
-       
-
-
-        /*      img help        */
+//=======================================================================
+//          IMAGES HELP
+//=======================================================================
         $('#img_help_1')
           .mouseenter(function () {
             let aide1 = new help(1,"l'aide s'affiche ici !");
