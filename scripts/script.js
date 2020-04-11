@@ -74,7 +74,7 @@
                 method : 'get'
             }).done(function (data) {
                 /* afficher les questions */               
-                $('#div_list_questions').slideDown()
+                $('#div_list_questions')
                     .append('<h2> Voici les differentes questions qui ont été posées </h2> <p> pour afficher les réponses et/ou répondre à une question, cliquez deux fois dessus</p><br/>')
                     .append('<button id="hide_answers">cacher les questions </button>');
                 for(let i = 0; i < data.result.length; ++i) {
@@ -86,7 +86,7 @@
                 }
                 $('#hide_answers').click(function() {
                     console.log("ok");
-                    $('#div_list_questions').slideUp();
+                    $('#container').slideUp();
                 });
 
 
