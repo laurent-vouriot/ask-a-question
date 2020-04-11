@@ -82,7 +82,7 @@
                         .append('<span class="' + data.result[i][0] +
                                 '" style="border : solid black 1px; padding : 10px">  auteur : '
                                 + data.result[i][1]
-                                + ', question : '    + data.result[i][2] + '</span><br/>');
+                                + ', question : '    + data.result[i][2] + '</span><button id="del_question">X<button>"<br/>');
                 }
                 
                 /* on récupère l'id de la question pour pouvoir afficher toutes les réponses  */
@@ -109,7 +109,7 @@
                         span.append(form_add_answer+'<br/>');
 
                         span.append('<img id="refresh" src="src/refresh.png" >');
-                        
+                                
                        /* actualiser les réponses */
                         $('#refresh').click(function () {
                             $.ajax({
