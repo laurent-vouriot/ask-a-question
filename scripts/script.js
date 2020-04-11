@@ -67,6 +67,11 @@
 //========================================================================
 //              AFFICHER LES REPONSES 
 //========================================================================
+        $('#hide_answers').click(function() {
+                    console.log("ok");
+                    $('#div_list_questions').html("");
+                });
+
         /* bouton voire les differentes  questions */
         $('.button_show_questions').one('click',function() {
             $.ajax({
@@ -84,10 +89,6 @@
                                 + data.result[i][1]
                                 + ', question : '    + data.result[i][2] + '</span><br/>');
                 }
-                $('#hide_answers').click(function() {
-                    console.log("ok");
-                    $('#div_list_questions').html("");
-                });
                 /* on récupère l'id de la question pour pouvoir afficher toutes les réponses  */
                 $('span').one('click', function() {
                     let id_q = $(this).attr('class');
