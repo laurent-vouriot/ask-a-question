@@ -84,7 +84,7 @@
                                 + data.result[i][1]
                                 + ', question : '    + data.result[i][2] + '</span><br/>');
                 }
-                $('hide_answers').click(function() {
+                $('#hide_answers').click(function() {
                     $('#div_list_questions').html();
                 });
                 /* on récupère l'id de la question pour pouvoir afficher toutes les réponses  */
