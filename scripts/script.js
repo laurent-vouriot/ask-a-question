@@ -69,6 +69,7 @@
 //========================================================================
         /* bouton voire les differentes  questions */
         $('.button_show_questions').one('click',function() {
+            $('#container_answers').slideDown();
             $.ajax({
                 url    : 'json/get_questions.php',
                 method : 'get'
@@ -86,7 +87,7 @@
                 }
                 $('#hide_answers').click(function() {
                     console.log("ok");
-                    $('#container').slideUp();
+                    $('#container_answers').slideUp();
                 });
 
 
