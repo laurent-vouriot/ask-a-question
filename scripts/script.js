@@ -86,7 +86,7 @@
                 }
                 
                 /* on récupère l'id de la question pour pouvoir afficher toutes les réponses  */
-                $('span').click(function() {
+                $('span').one('click', function() {
                     let id_q = $(this).attr('class');
                     let form_add_answer ='<form class="form_add_answer" method="post" action="json/add_answer.php?id_q='+ $(this).attr('class') +'"> <p> répondre </p> <input type="textField" name="answer" placeholder="vous avez la réponse ?" required><br/> <button type="submit"> publier </button> </form><br/><div id="message" style="display : none"></div>'
                     /* lorque l'on clique sur une question le formulaire de réponse ainsi que toutes 
